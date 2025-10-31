@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anjali Vegad | Interactive Portfolio</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+  <nav class="navbar">
+    <!-- HAMBURGER ICON -->
+    <div class="menu-btn" id="menu-btn">&#9776;</div>
+
+    <!-- NAV LINKS -->
+    <ul id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<script>
+  // minimal reliable toggle
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('menu-btn');
+    const links = document.getElementById('nav-links');
+
+    if (!btn || !links) {
+      console.error('menu-btn or nav-links not found');
+      return;
+    }
+
+    btn.addEventListener('click', function (e) {
+      const open = links.classList.toggle('active');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      links.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    // close when link clicked (mobile)
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (links.classList.contains('active')) {
+          links.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+          links.setAttribute('aria-hidden', 'true');
+        }
+      });
+    });
+  });
+</script>
+
+  <div id="floatingContainer"></div>
+
+  <section id="hero" class="hero">
+
+ <div class="photo">
+        <img src="me1.jpg" alt="Front Photo">
+    </div>
+  </div>
+
+<div class="hero-content">
+    <h1>Hi, I'm <span style="color:var(--accent)">Anjali Vegad</span></h1>
+    <p class="typing-text">Creative Frontend Developer | Interactive UI Enthusiast</p>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/anjali-vegad-b95774321" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/anjali0703" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i></a>
+      <a href="https://wa.me/8511271374?text=Hi%20Anjali!%20I%20visited%20your%20portfolio." target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:anjalivegad1706@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Anjali,%0AI%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you!" title="Email"><i class="fa fa-envelope"></i></a>
+    </div>
+    <!-- ====== Resume Download Button ====== -->
+    <div class="resume-btn">
+    <a href="Anjali_Vegad_Resume.pdf" download target="_blank">
+    <i class="fa-solid fa-download"></i>  Resume
+    </a>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const downloadBtn = document.getElementById("downloadResumeBtn");
+
+  if (!downloadBtn) {
+    console.error("❌ No element found with id='downloadResumeBtn'");
+    return;
+  }
+
+  // 👇 Change the path ONLY if your PDF is in another folder
+  const resumePath = "Anjali_Vegad_Resume.pdf"; 
+  // Example: const resumePath = "assets/Anjali_Vegad_Resume.pdf";
+
+  downloadBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Create an <a> tag dynamically to trigger download/open
+    const link = document.createElement("a");
+    link.href = resumePath;
+    link.download = "Anjali_Vegad_Resume.pdf"; // optional, for direct download
+    link.target = "_blank"; // opens in a new tab for preview
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
+
+</script>
+
+
+    </div>
+    
+  
+  </section>
+
+  <section id="about" class="about-section">
+  <div class="about-container">
+
+    <!-- Left Side: Text Content -->
+    <div class="about-content">
+      <h2>About Me</h2>
+      <h3 class="tagline">
+        Transforming Ideas into <span class="highlight">Interactive Experiences</span>
+      </h3>
+
+      <p>
+        Hello! I’m <strong>Anjali Vegad</strong> — a passionate <strong>Frontend Developer</strong> who believes that 
+        great design is more than just pixels — it’s about creating emotions, experiences, and stories through code. 
+        I specialize in building clean, responsive, and visually engaging websites that bring imagination to life.
+      </p>
+
+      <p>
+        My approach to development blends <strong>creativity</strong> with <strong>technical precision</strong>. 
+        Whether it’s designing a sleek UI, animating elements for extra flair, or ensuring seamless user interaction — 
+        I aim to craft experiences that *people remember*.
+      </p>
+
+      <p>
+        Beyond coding, I’m always exploring new technologies, experimenting with animations, and learning ways to make 
+        the web feel more human, beautiful, and alive ✨.
+      </p>
+
+      <a href="#project" class="about-btn">Explore My Work</a>
+    </div>
+
+    <!-- Right Side: Profile Image -->
+    <div class="about-photo">
+      <img src="me3.jpg" alt="Anjali Vegad Profile" />
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Education Section -->
+<section id="education" class="education">
+  <h2>Education</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Bachelor of Engineering in Computer Engineering</h3>
+        <p class="institute">Government Engineering College, Rajkot</p>
+        <p class="year">2022 – 2026</p>
+        <p class="desc">Focused on web development interactive frontend projects.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Higher Secondary Education (12th Science)</h3>
+        <p class="institute">Shree Dharshan Vidhyalaya, Surendranagar</p>
+        <p class="year">2020 – 2022</p>
+        <p class="desc">Specialized in Physics, Chemistry, and Mathematics with excellent academic results.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Secondary Education (10th)</h3>
+        <p class="institute">Shree Dharshan Vidhyalaya, Surendranagar</p>
+        <p class="year">2019 – 2020</p>
+        <p class="desc">Completed with distinction, developing a strong foundation in logical thinking.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="skills">
+    <h2>My Skills</h2>
+
+    <div class="skills-grid">
+      <div class="skill-box" data-percent="95%">
+        <div class="fill"></div>
+        <i class="fab fa-html5"></i>
+        <h3>HTML</h3>
+        <span class="percent">95%</span>
+      </div>
+
+      <div class="skill-box" data-percent="90%">
+        <div class="fill"></div>
+        <i class="fab fa-css3-alt"></i>
+        <h3>CSS</h3>
+        <span class="percent">90%</span>
+      </div>
+
+      <div class="skill-box" data-percent="85%">
+        <div class="fill"></div>
+        <i class="fab fa-js"></i>
+        <h3>JavaScript</h3>
+        <span class="percent">75%</span>
+      </div>
+
+      <div class="skill-box" data-percent="90%">
+        <div class="fill"></div>
+        <i class="fas fa-database"></i>
+        <h3>MySQL</h3>
+        <span class="percent">90%</span>
+      </div>
+
+      <div class="skill-box" data-percent="65%">
+        <div class="fill"></div>
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+        <span class="percent">65%</span>
+      </div>
+
+      <div class="skill-box" data-percent="60%">
+        <div class="fill"></div>
+        <i class="fas fa-code"></i>
+        <h3>Python</h3>
+        <span class="percent">60%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- JavaScript ---------- -->
+  <script>
+    document.querySelectorAll(".skill-box").forEach(box => {
+      const percent = box.getAttribute("data-percent");
+      const fill = box.querySelector(".fill");
+
+      box.addEventListener("mouseenter", () => {
+        fill.style.height = percent;
+      });
+      box.addEventListener("mouseleave", () => {
+        fill.style.height = "0%";
+      });
+    });
+    </script>
+
+
+
+  <section id="project">
+  <h2>🚀 My Projects</h2>
+  <div class="projects-container">
+
+    <div class="project-card">
+      <div class="project-icon"><i class="fa fa-globe"></i></div>
+      <h3>Personal Portfolio Website</h3>
+      <p>A responsive and animated personal portfolio built with HTML, CSS, and JavaScript featuring interactive UI, hover effects, and background animations.</p>
+      <a href="https://your-portfolio-link.com" target="_blank" class="project-link">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon"><i class="fa fa-calendar-check"></i></div>
+      <h3>Event Booking System</h3>
+      <p>PHP & MySQL-based web app that allows users to register, book events, and receive confirmation emails with auto-generated invoices.</p>
+      <a href="#" target="_blank" class="project-link">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon"><i class="fa fa-code"></i></div>
+      <h3>Interactive Quiz App</h3>
+      <p>Fun, animated quiz platform using JavaScript and APIs to generate random questions and score results in real-time.</p>
+      <a href="#" target="_blank" class="project-link">View Project</a>
+    </div>
+
+  </div>
+</section>
+
+
+ <section id="contact" class="contact-section">
+  <h2>Contact Me</h2>
+  <p>I'd love to hear from you! Whether it’s a project idea, collaboration, or just to say hi — message me directly on WhatsApp 💬</p>
+
+  <form id="whatsapp-form" class="contact-form">
+    <div class="input-group">
+      <input type="text" id="name" placeholder="Your Name" required />
+    </div>
+
+    <div class="input-group">
+      <input type="email" id="email" placeholder="Your Email" required />
+    </div>
+
+    <div class="input-group">
+      <textarea id="message" placeholder="Your Message" required></textarea>
+    </div>
+
+    <button type="submit" class="send-btn">
+      <i class="fab fa-whatsapp"></i> Send Message
+    </button>
+  </form>
+
+  <div class="social-icons">
+      <a href="https://www.linkedin.com/in/anjali-vegad-b95774321" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/anjali0703" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i></a>
+      <a href="https://wa.me/8511271374?text=Hi%20Anjali!%20I%20visited%20your%20portfolio." target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:anjalivegad1706@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Anjali,%0AI%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you!" title="Email"><i class="fa fa-envelope"></i></a>
+    </div>
+    
+</section>
+
+<!-- 💬 WhatsApp JS Function -->
+<script>
+document.getElementById("whatsapp-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // Get input values
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  // Your WhatsApp number (with country code, no '+' or spaces)
+  const phoneNumber = "918511271374"; // 🔹 Replace with your number
+
+  // WhatsApp message format
+  const whatsappMessage = `Hello Anjali! 👋%0A
+Name: ${name}%0A
+Email: ${email}%0A
+Message: ${message}`;
+
+  // Open WhatsApp chat with message
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+  window.open(whatsappURL, "_blank");
+
+  // Clear form after sending
+  this.reset();
+});
+</script>
+
+  <footer>&copy; 2025 Anjali Vegad | Designed with 💙 creativity</footer>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
